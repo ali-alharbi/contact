@@ -110,41 +110,17 @@
         <div class="header">
             <h1>مرحبًا بك! يمكن إرسال رسالة</h1>
         </div>
-        <form id="contactForm">
+        <form id="contactForm" action="https://formsubmit.co/d_alih@hotmail.com" method="POST">
             <div class="input-box">
                 <textarea name="message" id="message" placeholder="اكتب رسالتك هنا..." required></textarea>
             </div>
-            <button class="btn-send" type="button" onclick="sendMessage()">إرسال</button>
+            <input type="hidden" name="_subject" value="احد جيران فيلا القيروان">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://yourwebsite.com/success">
+            <button class="btn-send" type="submit">إرسال</button>
             <div class="loader" id="loader"></div>
             <div class="confirmation" id="confirmation"></div>
         </form>
     </div>
-
-    <script>
-        function sendMessage() {
-            const loader = document.getElementById('loader');
-            const confirmation = document.getElementById('confirmation');
-            const message = document.getElementById('message').value;
-
-            // Show loader and clear previous confirmation
-            loader.style.display = 'block';
-            confirmation.style.display = 'none';
-
-            // Simulate email sending
-            setTimeout(() => {
-                loader.style.display = 'none';
-
-                if (message.trim() === '') {
-                    confirmation.textContent = 'لم يتم إرسال الرسالة بنجاح. الرجاء ملء الحقل.';
-                    confirmation.className = 'confirmation error';
-                } else {
-                    confirmation.textContent = 'تم الإرسال بنجاح.';
-                    confirmation.className = 'confirmation success';
-                }
-
-                confirmation.style.display = 'block';
-            }, 2000);
-        }
-    </script>
 </body>
 </html>
